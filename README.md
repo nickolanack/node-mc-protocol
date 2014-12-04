@@ -18,8 +18,8 @@ get the js client running:
 ```js
 var mc = require('minecraft-protocol');
 var client=mc.createClient({
-		port: 8080,         
-		username: name,
+		port: 8080,  //this also needs to match server.properties setting: server-port   
+		username: 'neo',
 	});
 	
 ```
