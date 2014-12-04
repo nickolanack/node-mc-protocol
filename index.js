@@ -1,6 +1,7 @@
 var EventEmitter = require('events').EventEmitter
         , util = require('util')
         , assert = require('assert')
+        , ursa = require('ursa')
         , crypto = require('crypto')
         , bufferEqual = require('buffer-equal')
         , superagent = require('superagent')
@@ -14,14 +15,6 @@ var EventEmitter = require('events').EventEmitter
         , states = protocol.states
         , debug = protocol.debug
         ;
-var ursa;
-try {
-  ursa = require("ursa");
-} catch(e) {
-  console.log("You are using a pure-javascript implementation of RSA.");
-  console.log("Your performance might be subpar. Please consider installing URSA");
-  ursa = require("./rsa-wrap");
-}
 
 module.exports = {
   createClient: createClient,
@@ -120,7 +113,7 @@ function createServer(options) {
 
       client.once([states.STATUS, 0x01], function(packet) {
         client.write(0x01, { time: packet.time });
-        client.end();
+        client.end('closed on states.STATUS, 0x01 '+JSON.stringify(packet));
       });
       client.write(0x00, {response: JSON.stringify(response)});
     }
@@ -285,7 +278,7 @@ function createClient(options) {
     function gotSharedSecret(err, sharedSecret) {
       if (err) {
         client.emit('error', err);
-        client.end();
+        client.end(err);
         return
       }
 
@@ -301,7 +294,7 @@ function createClient(options) {
       function onJoinServerResponse(err) {
         if (err) {
           client.emit('error', err);
-          client.end();
+          client.end('error '+err);
         } else {
           sendEncryptionKeyResponse();
         }
