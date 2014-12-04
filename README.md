@@ -38,9 +38,11 @@ var client=mc.createClient({
 
 
 ```js
+
+client.on('login',function(data){
 	var itemMap=require('.client/mc-items.json');
 	var scog=require('.client/mc-spatial.js').createSpatialCognizance(client, itemMap);
 	var movement=require('.client/mc-movement.js').createMovement(client, scog);
-	
+});	
 ```
 	
