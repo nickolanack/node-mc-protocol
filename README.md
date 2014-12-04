@@ -52,3 +52,37 @@ client.on('login',function(data){
 });	
 ```
 	
+
+here is a example of getting the player to stare at you... creepy
+
+```js
+//ecog provides methods for interacting with entities, including other players
+var ecog=require('./mc-entities.js').createEntityCognizance(client);
+ecog.once('detect.player',function(id){
+	var last;
+	var watch=function(){
+		//ecog.watch starts returning position updates for an entity
+		ecog.watch(id, function(p){
+			//this callback function recieves updated for the entity's position
+			if(p){
+				movement.lookAtPoint(p);
+				last=p;
+			}
+					
+		},function(err){
+			//this callback is fired after timeout or if watch failed for somereason.		
+			var dist=movement.measureTo(last);
+			if(dist<30){
+				//watch again for 5 sec
+				watch();
+			}else{
+				//stop watching look straight
+				movement.look({pitch:0});
+			}
+					
+		}, 5000); //watch_task=watch for 5 seconds and then... watch_task ...
+	};
+	watch();
+});
+
+```
