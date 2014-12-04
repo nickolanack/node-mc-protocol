@@ -15,11 +15,12 @@ create an mc server and modify server.properties file:
 
 
 get the js client running:
-
+```js
 var mc = require('minecraft-protocol');
 var client=mc.createClient({
 		port: 8080,         
 		username: name,
 	});
 	
+```
 	
