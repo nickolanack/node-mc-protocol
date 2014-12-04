@@ -40,8 +40,14 @@ var client=mc.createClient({
 ```js
 
 client.on('login',function(data){
-	var itemMap=require('.client/mc-items.json');
+	var itemMap=require('.client/mc-items.json'); //just an array with id's codes, and names of items
+	
+	// scog, provides methods for getting spatial information about the world. uses itemMap for 
+	// deciding if blocks are doors or air etc..
 	var scog=require('.client/mc-spatial.js').createSpatialCognizance(client, itemMap);
+	
+	// movement will imediately start sending udpates about the client's position. 
+	// use movement to walkTo, runTo, jump, crouch....
 	var movement=require('.client/mc-movement.js').createMovement(client, scog);
 });	
 ```
