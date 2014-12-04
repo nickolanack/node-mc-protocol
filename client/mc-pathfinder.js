@@ -29,6 +29,8 @@ Pathfinder.prototype.__proto__ = events.EventEmitter.prototype;
 Pathfinder.prototype.route=function(from, to, time, callback){
 	
 	
+	//This is just an A* implementation...
+	
 	var me=this;
 	
 	
