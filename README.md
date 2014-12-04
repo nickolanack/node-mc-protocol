@@ -9,10 +9,10 @@ for me this is an attempt at creating an Automated client, to play minecraft wit
 get a server started locally:
 
 create an mc server and modify server.properties file:
-
+```
    online-mode=false
    network-compression-threshold=-1
-
+```
 
 get the js client running:
 ```js
