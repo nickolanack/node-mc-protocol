@@ -17,6 +17,7 @@ To get the client going you should have an idea of how nodejs works (I'm just le
 
 1. install nodejs, amd npm install minecraft-protocol.
 2. you can either update the minecraft-protocol files with the ones in this repository or...
+
 - what I like to do is create a project with *'node_modules folder'*, and *'node-minecraft-protocol'* folder at the root.
 - the node modules folder will contain all the requirements of the origional node-minecraft-protocol and the contents
 - of this repo go into node-minecraft-protocol. Then any code that I write requires node-minecraft-protocol like
