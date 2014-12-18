@@ -15,12 +15,12 @@ Create an mc server and modify server.properties file with:
 
 To get the client going you should have an idea of how nodejs works (I'm just learning myself)
 
-1. install nodejs, amd npm install minecraft-protocol.
+1. install nodejs, and npm install minecraft-protocol.
 2. you can either update the minecraft-protocol files with the ones in this repository or...
 
 - what I like to do is create a project with *'node_modules folder'*, and *'node-minecraft-protocol'* folder at the root.
-- the node modules folder will contain all the requirements of the origional node-minecraft-protocol and the contents
-- of this repo go into node-minecraft-protocol. Then any code that I write requires node-minecraft-protocol like
-- require('./node-minecraft-protocol/index.js') and node knows to load requirements from node_modules...
+- the node modules folder will contain all the requirements of the origional node-minecraft-protocol 
+- and the contents of this repo go into node-minecraft-protocol. 
+- Then any code that I write requires node-minecraft-protocol like require('./node-minecraft-protocol/index.js') and node knows to load requirements from node_modules...
 
 to see the progress on my minecraft-agent go to https://github.com/nickolanack/node-minecraft-agent
