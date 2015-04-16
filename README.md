@@ -1,3 +1,8 @@
+
+This project is closed.
+Go to https://github.com/roblabla/node-minecraft-protocol for latest working protocol
+
+
 *This is an attempt at updating the origional protocol to work with mc 1.8*
 *I have no intention to push any changes back into the 1.7.10 version since that version works fine with 1.7.10 servers.*
 
